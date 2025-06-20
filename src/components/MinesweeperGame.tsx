@@ -57,7 +57,7 @@ const MinesweeperGame: React.FC = () => {
 
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [gameWon, setGameWon] = useState(false); // Make sure this line exists and is correct
+  // const [gameWon, setGameWon] = useState(false); // Make sure this line exists and is correct
   const [win, setWin] = useState(false);
   const [minesLeft, setMinesLeft] = useState(0);
   const [smileyFace, setSmileyFace] = useState<'normal' | 'victory' | 'loss'>('normal');
@@ -696,14 +696,14 @@ const MinesweeperGame: React.FC = () => {
   // };
 
   const getSmileySrc = useCallback(() => {
-    if (gameOver) {
-      return '/svg/loss.svg';
-    } else if (gameWon) {
+    if (win) { // Check win condition first
       return '/svg/victory.svg';
+    } else if (gameOver) { // Then check if game is over (and not a win, implicitly)
+      return '/svg/loss.svg';
     }
-    // No smileyFace state needed, directly use the props passed from here
-    return '/svg/normal.svg'; // Or whatever default you want
-  }, [gameOver, gameWon]);
+    // If neither win nor gameOver, it's a normal, ongoing game
+    return '/svg/normal.svg';
+  }, [gameOver, win]); // Dependencies remain correct
 
   // Helper for SVG paths
   const getSvgPath = (value: string): string => {
