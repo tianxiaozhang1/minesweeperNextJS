@@ -10,7 +10,7 @@ export const GAP_NATIVE_PX = 1;   // 1px gap between squares in the grid layout
 // Calculate the original mine density to maintain it across different grid sizes.
 const BASE_ROWS = 16;
 const BASE_COLS = 30;
-const BASE_MINES = 3;
+const BASE_MINES = 99;
 export const BASE_MINE_DENSITY = BASE_MINES / (BASE_ROWS * BASE_COLS); // ~0.20625
 
 // --- Responsive Game Size Configurations ---
