@@ -60,7 +60,7 @@ const MinesweeperGame: React.FC = () => {
   // const [gameWon, setGameWon] = useState(false); // Make sure this line exists and is correct
   const [win, setWin] = useState(false);
   const [minesLeft, setMinesLeft] = useState(0);
-  const [smileyFace, setSmileyFace] = useState<'normal' | 'victory' | 'loss'>('normal');
+  // const [smileyFace, setSmileyFace] = useState<'normal' | 'victory' | 'loss'>('normal');
   const [secondsElapsed, setSecondsElapsed] = useState(0);
 
   // For scaling the entire game board
@@ -144,7 +144,7 @@ const MinesweeperGame: React.FC = () => {
     setGameOver(false);
     setWin(false);
     setMinesLeft(newMinesCount);
-    setSmileyFace('normal');
+    // setSmileyFace('normal');
     setSecondsElapsed(0);
     clicksDown.current = { left: false, right: false };
     if (doubleClickTimeout.current) {
@@ -239,8 +239,8 @@ const MinesweeperGame: React.FC = () => {
           const newTime = prev + 1;
           if (newTime >= MAX_TIME) {
             setGameOver(true);
-            setSmileyFace('loss');
-            console.log("Game Over! Time ran out!");
+            // setSmileyFace('loss');
+            // console.log("Game Over! Time ran out!");
             if (timerIntervalRef.current) {
               clearInterval(timerIntervalRef.current);
               timerIntervalRef.current = undefined;
@@ -358,7 +358,7 @@ const MinesweeperGame: React.FC = () => {
   const handleGameOver = useCallback(
     (explodedRow: number, explodedCol: number) => {
       setGameOver(true);
-      setSmileyFace('loss');
+      // setSmileyFace('loss');
       const newDisplayGrid = displayGridRef.current.map((row) => [...row]);
 
       for (let r = 0; r < rows; r++) { // Use dynamic rows/cols
@@ -425,7 +425,7 @@ const MinesweeperGame: React.FC = () => {
     if (winTriggered) {
       setWin(true);
       setGameOver(true);
-      setSmileyFace('victory');
+      // setSmileyFace('victory');
       setMinesLeft(0);
 
       const finalDisplayGrid = displayGridRef.current.map(row => [...row]);
@@ -678,7 +678,7 @@ const MinesweeperGame: React.FC = () => {
     setGameOver(false);
     setWin(false);
     setMinesLeft(minesCount); // Reset to the current calculated minesCount
-    setSmileyFace('normal');
+    // setSmileyFace('normal');
     setSecondsElapsed(0);
     clicksDown.current = { left: false, right: false };
     if (doubleClickTimeout.current) {
