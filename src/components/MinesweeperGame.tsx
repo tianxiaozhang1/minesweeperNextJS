@@ -32,7 +32,7 @@ type FlaggedGrid = boolean[][];
 type DisplayGrid = string[][];
 
 // --- Initial Grid States (moved outside component to be reusable) ---
-const createEmptyGrid = (rows: number, cols: number, fillValue: any): any[][] => {
+const createEmptyGrid = <T,>(rows: number, cols: number, fillValue: T): T[][] => {
   if (rows <= 0 || cols <= 0) return []; // Handle initial 0 values safely
   return Array(rows)
     .fill(0)
@@ -695,7 +695,7 @@ const MinesweeperGame: React.FC = () => {
   };
 
   // Helper for SVG paths
-  const getSvgPath = (value: number | string): string => {
+  const getSvgPath = (value: string): string => {
     return `/svg/${value}.svg`;
   };
 
