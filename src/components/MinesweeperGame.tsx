@@ -57,6 +57,7 @@ const MinesweeperGame: React.FC = () => {
 
   const [isGameStarted, setIsGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [gameWon, setGameWon] = useState(false); // Make sure this line exists and is correct
   const [win, setWin] = useState(false);
   const [minesLeft, setMinesLeft] = useState(0);
   const [smileyFace, setSmileyFace] = useState<'normal' | 'victory' | 'loss'>('normal');
@@ -688,11 +689,21 @@ const MinesweeperGame: React.FC = () => {
   }, [rows, cols, minesCount]); // Dependencies must include dynamic states
 
   // Determine which smiley SVG to display
-  const getSmileySrc = () => {
-    if (win) { return '/svg/victory.svg'; }
-    else if (gameOver) { return '/svg/loss.svg'; }
-    else { return '/svg/normal.svg'; }
-  };
+  // const getSmileySrc = () => {
+  //   if (win) { return '/svg/victory.svg'; }
+  //   else if (gameOver) { return '/svg/loss.svg'; }
+  //   else { return '/svg/normal.svg'; }
+  // };
+
+  const getSmileySrc = useCallback(() => {
+    if (gameOver) {
+      return '/svg/loss.svg';
+    } else if (gameWon) {
+      return '/svg/victory.svg';
+    }
+    // No smileyFace state needed, directly use the props passed from here
+    return '/svg/normal.svg'; // Or whatever default you want
+  }, [gameOver, gameWon]);
 
   // Helper for SVG paths
   const getSvgPath = (value: string): string => {
@@ -710,7 +721,7 @@ const MinesweeperGame: React.FC = () => {
 
   // Calculate native width/height of the game area for centering
   // const nativeGameWidth = (cols * CELL_NATIVE_PX) + ((cols - 1) * GAP_NATIVE_PX) + (16 * 2); // Board width + outer padding
-  const nativeGameHeight = (rows * CELL_NATIVE_PX) + ((rows - 1) * GAP_NATIVE_PX) + (headerRef.current?.offsetHeight || 60) + (16 * 2); // Board height + header + outer padding
+  // const nativeGameHeight = (rows * CELL_NATIVE_PX) + ((rows - 1) * GAP_NATIVE_PX) + (headerRef.current?.offsetHeight || 60) + (16 * 2); // Board height + header + outer padding
 
   return (
     <div 
