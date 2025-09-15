@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Image from "next/image";
 
 export default function Home() {
@@ -110,4 +111,15 @@ export default function Home() {
       </div>
     </main>
   );
+=======
+// import Image from "next/image";
+import MinesweeperGame from '../components/MinesweeperGame';
+
+export default function Home() {
+    return (
+        <div className="bg-slate-100 w-full h-screen flex justify-center items-center">                
+            <MinesweeperGame />
+        </div>
+    );
+>>>>>>> b8816dfe3849b08855ebfb37edeb5c2f613de7e7
 }
