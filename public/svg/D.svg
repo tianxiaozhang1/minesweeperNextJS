@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="56" height="56">
-<path d="M0 0 C18.48 0 36.96 0 56 0 C56 18.48 56 36.96 56 56 C37.52 56 19.04 56 0 56 C0 37.52 0 19.04 0 0 Z " fill="#B6B6AC" transform="translate(0,0)"/>
-<path d="M0 0 C0.66 0 1.32 0 2 0 C2 18.48 2 36.96 2 56 C-16.48 56 -34.96 56 -54 56 C-54 55.34 -54 54.68 -54 54 C-36.18 54 -18.36 54 0 54 C0 36.18 0 18.36 0 0 Z " fill="#A2A298" transform="translate(54,0)"/>
-</svg>
